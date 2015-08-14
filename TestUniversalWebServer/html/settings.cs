@@ -21,30 +21,6 @@ namespace RemoteDeviceManager.html
 
         public override async Task<string> render(HttpServerRequest req)
         {
-            PostParameter selcamera =req.postParameters.Where(x=>x.name.Equals("sel_camera")).FirstOrDefault();
-            String selDeviceId = PhoneUtility.getStringSettings("SEL_CAM_ID", null);
-            if (selcamera != null)
-            {
-                if (changeCamera != null)
-                    changeCamera(this, selcamera.value);
-            }
-            String options = "";
-            DeviceInformationCollection devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
-            foreach (var device in devices)
-            {
-                options += "<option value='"+device.Id+"' ";
-                if(selcamera!=null && selcamera.value.Equals(device.Id))
-                {
-                    options += "selected ";
-                }
-                if(selcamera==null && selDeviceId.Equals(device.Id))
-                {
-                    options += "selected ";
-                }
-                options += ">" + device.Name + "</option>";
-            }
-
-            req.html = req.html.Replace("<%OPTIONS%>", options);
             return req.html;
         }
 
