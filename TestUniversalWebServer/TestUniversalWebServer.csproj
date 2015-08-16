@@ -405,7 +405,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomPage.cs" />
-    <Compile Include="html\about.cs" />
     <Compile Include="html\login.cs" />
     <Compile Include="html\settings.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -421,7 +420,6 @@
     <None Include="TestUniversalWebServer_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="html\about.html" />
     <Content Include="html\bower_components\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="html\bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
     <Content Include="html\bower_components\bootstrap\dist\css\bootstrap.css" />
@@ -864,8 +862,6 @@
     <Content Include="html\Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="html\Scripts\jquery-1.6.4.js" />
     <Content Include="html\Scripts\jquery-1.6.4.min.js" />
-    <Content Include="html\Scripts\jquery.signalR-2.2.0.js" />
-    <Content Include="html\Scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="html\settings.html" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
