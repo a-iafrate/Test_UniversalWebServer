@@ -1,6 +1,5 @@
 ﻿using EasyHttpServer.Server;
 using EasyHttpServer.Utils;
-using RemoteDesktopManager.Utils;
 using RemoteDeviceManager;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UniversalWebServer.Server;
 using Windows.Phone.Devices.Power;
 using Windows.Storage;
 

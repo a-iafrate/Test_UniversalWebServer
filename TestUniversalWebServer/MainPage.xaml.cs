@@ -34,25 +34,20 @@ namespace TestUniversalWebServer
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            // declare connection port
             const int port = 8001;
+            // create new server instance
             HttpServer server = new HttpServer(port);
-
-
-
+            // remove login function
+            server.removeLogin = true;
+            // init server
             await server.init();
            
-
-                //server.removeLogin = true;
-
-
-            
-
             server.Connected += Server_Connected;
             server.customPageInterface = new CustomPage();
             HttpServerPage defPage = new HttpServerPage("about.html", new RemoteDeviceManager.html.about());
             server.pagesMap.Add(defPage);
             server.pagesMap.Add(new HttpServerPage("login.html", new login()));
-            
             server.pagesMap.Add(new HttpServerPage("settings.html", new settings()));
             server.defaultpage = defPage;
             

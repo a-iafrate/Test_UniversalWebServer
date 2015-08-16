@@ -1,6 +1,5 @@
 ﻿using EasyHttpServer.Server;
 using EasyHttpServer.Utils;
-using RemoteDesktopManager.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +7,6 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
-using UniversalWebServer.Server;
 using Windows.ApplicationModel.Contacts;
 
 namespace RemoteDeviceManager.html
@@ -26,7 +24,7 @@ namespace RemoteDeviceManager.html
       
         public async override Task<string> renderHeader(HttpServerRequest req)
         {
-           req.html = PageUtils.translateHeader(req.html);
+          
             return req.html;
         }
 

@@ -890,8 +890,9 @@
     <Folder Include="html\bower_components\dist\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="UniversalWebServer">
-      <HintPath>..\..\myrasp\myrasp\UniversalWebServer\bin\Release\UniversalWebServer_Secure\UniversalWebServer.dll</HintPath>
+    <Reference Include="UniversalWebServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\progetti\UniversalWebServer.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
