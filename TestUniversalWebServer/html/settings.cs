@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Contacts;
 using Windows.Devices.Enumeration;
+using Windows.Storage.FileProperties;
 
 namespace RemoteDeviceManager.html
 {
@@ -19,24 +20,18 @@ namespace RemoteDeviceManager.html
 
         public override async Task<string> render(HttpServerRequest req)
         {
+            PostParameter file= req.postParameters.Where(x => x.name == "upload").FirstOrDefault();
+            if (file != null)
+            {
+               BasicProperties prop= await file.contentFile.GetBasicPropertiesAsync();
+                req.html=req.html.Replace("<%FILEINFO%>", "File info:<br/>Name: "+Path.GetFileName(file.value)+"<br/>Size: "+(prop.Size/1000)+"KB");
+            }else
+                req.html=req.html.Replace("<%FILEINFO%>", "");
             return req.html;
         }
 
      
-        public async override Task<string> renderHeader(HttpServerRequest req)
-        {
         
-            req.html = req.html.Replace("<!--HEADER_PLACEHOLDER-->", "<script language=\"javascript\">" +
-"function reloadImage() {" +
-     
-        "var tempo = document.getElementById('seltime'); " +
-        "var time = parseInt(tempo.options[tempo.selectedIndex].value); " +
-        "setTimeout(\"document.getElementById('reloader').src ='camera_preview.jpg?rnd='+new Date().getMilliseconds()\", time); " +
-    "}" +
-"</script> ");
-
-            return req.html;
-        }
 
     
        
