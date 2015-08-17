@@ -885,6 +885,11 @@
   <ItemGroup>
     <Folder Include="html\bower_components\dist\" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UniversalWebServer">
+      <HintPath>..\..\UniversalWebServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
