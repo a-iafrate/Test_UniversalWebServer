@@ -18,6 +18,7 @@ namespace RemoteDeviceManager.html
         public delegate void ChangeCameraEventHandler(object sender,String deviceId);
         public event ChangeCameraEventHandler changeCamera;
 
+       // get info on uploaded file
         public override async Task<string> render(HttpServerRequest req)
         {
             PostParameter file= req.postParameters.Where(x => x.name == "upload").FirstOrDefault();

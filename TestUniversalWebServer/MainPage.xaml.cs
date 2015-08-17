@@ -40,17 +40,25 @@ namespace TestUniversalWebServer
             HttpServer server = new HttpServer(port);
             // remove login function
             server.removeLogin = true;
-            // init server
-            await server.init();
            
+            // Made some operation on server connected
             server.Connected += Server_Connected;
+            // Create a custom page interface for virtual page
             server.customPageInterface = new CustomPage();
-            HttpServerPage defPage = new HttpServerPage("about.html", new RemoteDeviceManager.html.about());
+            // define a default page
+            HttpServerPage defPage = new HttpServerPage("index.html", null);
+            // Add to pages map
             server.pagesMap.Add(defPage);
+            // Add other dynamic page to list, page with only html page not need to add
             server.pagesMap.Add(new HttpServerPage("login.html", new login()));
             server.pagesMap.Add(new HttpServerPage("settings.html", new settings()));
+            //set the default page
             server.defaultpage = defPage;
-            
+
+            // init server
+            await server.init();
+
+
         }
 
         private void Server_Connected(object sender)

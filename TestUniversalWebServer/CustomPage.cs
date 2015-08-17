@@ -14,6 +14,7 @@ namespace TestUniversalWebServer
 {
     public class CustomPage : CustomPageInterface
     {
+        // define custom virtual page
         public override async Task<bool> rewrite(System.IO.Stream resp, HttpServerRequest req)
         {
             String tempPath = req.path;
@@ -21,10 +22,13 @@ namespace TestUniversalWebServer
                 tempPath = tempPath.Substring(0, req.path.IndexOf("?"));
             switch (tempPath)
             {
+                // generate virtual page for url /hello.png
                 case "/hello.png":
+                    //Download image from internet and return as local page
                     byte[] imageByte = await DownloadImageFromWebsiteAsync("https://assets.windowsphone.com/db658987-b7ca-43aa-885c-fd4426fb6962/Downloads-VS_InvariantCulture_Default.png");
 
                         String contentType = Util.getContentType("/hello.png");
+                    //Write header
                     string header = String.Format("HTTP/1.1 200 OK\r\n" +
                                     "Content-Length: {0}\r\n" + contentType +
                                     "Cache-Control: no-cache, no-store, must-revalidate\r\nPragma: no-cache\r\nExpires: 0\r\n" +
@@ -32,6 +36,7 @@ namespace TestUniversalWebServer
                                     imageByte.Length);
 
                     byte[] headerArray = Encoding.UTF8.GetBytes(header);
+                    //Write response
                     await resp.WriteAsync(headerArray, 0, headerArray.Length);
                     await resp.WriteAsync(imageByte, 0, imageByte.Length);
 

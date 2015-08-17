@@ -19,12 +19,13 @@ namespace RemoteDesktopManager.html
             return true;
         }
 
-    
+        // Edit render html to remove header html
         public async override Task<string> renderHeader(HttpServerRequest req)
         {
             return "";
         }
 
+        // Edit render html to remove footer html
         public override async Task<string> renderFooter(HttpServerRequest req)
         {
             return "";
